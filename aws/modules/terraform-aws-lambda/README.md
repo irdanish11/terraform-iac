@@ -2,7 +2,6 @@
 
 Terraform module, which creates almost all supported AWS Lambda resources as well as taking care of building and packaging of required Lambda dependencies for functions and layers.
 
-[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
 This Terraform module is the part of [serverless.tf framework](https://github.com/antonbabenko/serverless.tf), which aims to simplify all operations when working with the serverless in Terraform:
 
