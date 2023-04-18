@@ -180,7 +180,7 @@ resource "aws_route_table_association" "private-subnet-1-rtb-association" {
 resource "aws_subnet" "vpc-private-subnet-2" {
   vpc_id = aws_vpc.kodetronix-vpc.id
   cidr_block = var.private-subnet-2-cidr-block
-  availability_zone = "${var.region}a"
+  availability_zone = "${var.region}b"
   tags = {
     Name = "${var.project}-private-subnet-02"
   }
@@ -210,7 +210,7 @@ resource "aws_route_table_association" "private-subnet-2-rtb-association" {
 resource "aws_subnet" "vpc-private-subnet-3" {
   vpc_id = aws_vpc.kodetronix-vpc.id
   cidr_block = var.private-subnet-3-cidr-block
-  availability_zone = "${var.region}a"
+  availability_zone = "${var.region}c"
   tags = {
     Name = "${var.project}-private-subnet-03"
   }
