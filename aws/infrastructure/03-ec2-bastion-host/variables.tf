@@ -53,6 +53,7 @@ variable "private-subnet-3-cidr-block" {
   type = string
 }
 
+# EC2 Bastion Host variables
 variable "ec2-bastion-public-key-path" {
   type = string
 }
