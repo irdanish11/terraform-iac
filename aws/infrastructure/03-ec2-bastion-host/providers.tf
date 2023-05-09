@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "4.62.0"
     }
   }
@@ -9,7 +9,7 @@ terraform {
 
 provider "aws" {
   # Configuration options
-  region = "eu-west-2"
+  region  = "eu-west-2"
   profile = "aws-access-key-profile"
 }
 
@@ -17,10 +17,10 @@ provider "aws" {
 # terraform init -reconfigure
 terraform {
   backend "s3" {
-    bucket = "infrafy-backend-tfstate-bucket-dev"
-    key    = "terraform.tfstate"
-    region = "eu-west-2"
-    profile = "aws-access-key-profile"
+    bucket         = "infrafy-backend-tfstate-bucket-dev"
+    key            = "terraform.tfstate"
+    region         = "eu-west-2"
+    profile        = "aws-access-key-profile"
     dynamodb_table = "infrafy-tfstate-lock-dev"
-  }    
+  }
 }

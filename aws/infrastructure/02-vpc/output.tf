@@ -5,6 +5,6 @@ output "vpc_id" {
 output "vpc_cidr_block" {
   value = resource.aws_vpc.kodetronix-vpc.cidr_block
 }
-  
+
 
   

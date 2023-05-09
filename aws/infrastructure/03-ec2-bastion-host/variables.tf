@@ -22,11 +22,11 @@ variable "vpc-cidr-block" {
 }
 
 variable "public-subnets-cidr-blocks" {
-    type = list(string)
+  type = list(string)
 }
 
 variable "private-subnets-cidr-blocks" {
-    type = list(string)
+  type = list(string)
 }
 
 variable "public-subnet-1-cidr-block" {
@@ -63,5 +63,9 @@ variable "ec2-bastion-private-key-path" {
 }
 
 variable "ec2-bastion-ingress-ip-1" {
+  type = string
+}
+
+variable "bastion-bootstrap-script-path" {
   type = string
 }

@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "4.62.0"
     }
   }
@@ -9,6 +9,6 @@ terraform {
 
 provider "aws" {
   # Configuration options
-  region = "eu-west-2"
+  region  = "eu-west-2"
   profile = "aws-access-key-profile-name"
 }
