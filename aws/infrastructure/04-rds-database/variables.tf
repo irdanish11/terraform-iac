@@ -53,7 +53,6 @@ variable "private-subnet-3-cidr-block" {
   type = string
 }
 
-# EC2 Bastion Host variables
 variable "ec2-bastion-public-key-path" {
   type = string
 }
@@ -67,5 +66,26 @@ variable "ec2-bastion-ingress-ip-1" {
 }
 
 variable "bastion-bootstrap-script-path" {
+  type = string
+}
+
+## RDS variables
+variable "rds-postgres-db-username" {
+  type = string
+}
+
+variable "rds-postgres-db-password" {
+  type = string
+}
+
+variable "rds-postgres-db-name" {
+  type = string
+}
+
+variable "rds-postgres-db-port" {
+  type = number
+}
+
+variable "rds-postgres-db-maintenance-window" {
   type = string
 }

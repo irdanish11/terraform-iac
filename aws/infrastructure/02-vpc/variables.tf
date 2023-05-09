@@ -22,11 +22,11 @@ variable "vpc-cidr-block" {
 }
 
 variable "public-subnets-cidr-blocks" {
-    type = list(string)
+  type = list(string)
 }
 
 variable "private-subnets-cidr-blocks" {
-    type = list(string)
+  type = list(string)
 }
 
 variable "public-subnet-1-cidr-block" {

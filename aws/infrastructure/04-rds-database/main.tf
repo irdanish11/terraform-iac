@@ -27,7 +27,7 @@ resource "aws_key_pair" "ec2-bastion-host-key-pair" {
   # public_key = file(var.ec2-bastion-public-key-path)
 }
 
-## EC2 Bastion Host Security Group
+# ## EC2 Bastion Host Security Group
 resource "aws_security_group" "ec2-bastion-sg" {
   description = "EC2 Bastion Host Security Group"
   name        = "${var.project}-ec2-bastion-sg-${var.environment}"

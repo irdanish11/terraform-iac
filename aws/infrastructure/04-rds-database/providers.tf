@@ -10,7 +10,7 @@ terraform {
 provider "aws" {
   # Configuration options
   region  = "eu-west-2"
-  profile = "aws-access-key-profile"
+  profile = "infrafy-tf-admin-dev"
 }
 
 # Configuring S3 and DynamoDB backend for Terraform state
@@ -20,7 +20,7 @@ terraform {
     bucket         = "infrafy-backend-tfstate-bucket-dev"
     key            = "terraform.tfstate"
     region         = "eu-west-2"
-    profile        = "aws-access-key-profile"
+    profile        = "infrafy-tf-admin-dev"
     dynamodb_table = "infrafy-tfstate-lock-dev"
   }
 }

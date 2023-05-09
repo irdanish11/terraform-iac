@@ -26,3 +26,10 @@ ec2-bastion-public-key-path   = "../secrets/ec2-bastion-key-pair.pub"
 ec2-bastion-private-key-path  = "../secrets/ec2-bastion-key-pair.pem"
 ec2-bastion-ingress-ip-1      = "0.0.0.0/0"
 bastion-bootstrap-script-path = "../scripts/bastion-bootstrap.sh"
+
+## RDS Variables
+rds-postgres-db-username           = "infrafypostgres"
+rds-postgres-db-password           = "<db-password>"
+rds-postgres-db-port               = 5432
+rds-postgres-db-name               = "infrafy"
+rds-postgres-db-maintenance-window = "Sun:00:00-Sun:03:00"
