@@ -1,3 +1,4 @@
+## RDS Subnet Group for Postgres
 resource "aws_db_subnet_group" "db-subnet-group" {
   name = "${var.project}-db-subnet-group-${var.environment}"
   subnet_ids = [
@@ -10,6 +11,7 @@ resource "aws_db_subnet_group" "db-subnet-group" {
   }
 }
 
+## Security Group for RDS Postgres
 resource "aws_security_group" "rds-postgres-sg" {
   name        = "${var.project}-rds-postgres-sg-${var.environment}"
   description = "Security group for RDS Postgres"
@@ -23,12 +25,14 @@ resource "aws_security_group" "rds-postgres-sg" {
   }
 }
 
+## KMS Key for RDS Postgres
 resource "aws_kms_key" "db_key" {
   description         = "KMS key for RDS Postgres"
   key_usage           = "ENCRYPT_DECRYPT"
   enable_key_rotation = true
 }
 
+## Parameter Group for RDS Postgres
 resource "aws_db_parameter_group" "rds-postgres-pg" {
   name        = "${var.project}-rds-postgres-pg-${var.environment}"
   family      = "postgres14"
@@ -43,6 +47,7 @@ resource "aws_db_parameter_group" "rds-postgres-pg" {
   }
 }
 
+## RDS DB Instance for Postgres
 resource "aws_db_instance" "rds-postgres" {
   identifier                            = "${var.project}-rds-postgres-db-${var.environment}"
   engine                                = "postgres"
@@ -80,6 +85,7 @@ resource "aws_db_instance" "rds-postgres" {
   final_snapshot_identifier             = "${var.project}-rds-postgres-db-final-snapshot-${var.environment}"
 }
 
+## SNS Topic to send alerts
 resource "aws_sns_topic" "databases-sns-topic" {
   name = "${var.project}-databases-sns-topic-${var.environment}"
   tags = {
@@ -87,12 +93,14 @@ resource "aws_sns_topic" "databases-sns-topic" {
   }
 }
 
+## SNS Subscription to send alerts to email
 resource "aws_sns_topic_subscription" "db-alerts-sns-subscription" {
   topic_arn = aws_sns_topic.databases-sns-topic.arn
   protocol  = "email"
   endpoint  = "dbalerts@kodetronix.com"
 }
 
+## Cloudwatch alarm for RDS CPU utilization
 resource "aws_cloudwatch_metric_alarm" "rds-postgres-cpu-utilization-alarm" {
   alarm_name          = "${var.project}-rds-postgres-cpu-utilization-alarm-${var.environment}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -110,6 +118,7 @@ resource "aws_cloudwatch_metric_alarm" "rds-postgres-cpu-utilization-alarm" {
   }
 }
 
+ ## Cloudwatch alarm for RDS Memory utilization
 resource "aws_cloudwatch_metric_alarm" "rds-postgres-memory-utilization-alarm" {
   alarm_name          = "${var.project}-rds-postgres-memory-utilization-alarm-${var.environment}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -127,7 +136,7 @@ resource "aws_cloudwatch_metric_alarm" "rds-postgres-memory-utilization-alarm" {
   }
 }
 
-## RDS Storage Alarm
+## Cloudwatch alarm for RDS Storage utilization
 resource "aws_cloudwatch_metric_alarm" "rds-postgres-storage-utilization-alarm" {
   alarm_name          = "${var.project}-rds-postgres-storage-utilization-alarm-${var.environment}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
